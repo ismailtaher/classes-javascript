@@ -1,6 +1,6 @@
 // Classes Javascript
 
-class Pizza {
+/* class Pizza {
   constructor(pizzaType, pizzaSize) {
     this.type = pizzaType;
     this.size = pizzaSize;
@@ -28,8 +28,25 @@ class Pizza {
 
 const myPizza = new Pizza("pepperoni", "small");
 /* myPizza.type = "supreme"; */ // not desirable to access properties like that
-myPizza.setCrust("thin"); // here we set the value of crust to thin using setCrust()
-myPizza.setToppings("sausage");
+/* myPizza.setCrust("thin"); */ // here we set the value of crust to thin using setCrust()
+/* myPizza.setToppings("sausage");
 myPizza.setToppings("olives");
 myPizza.bake();
-console.log(myPizza.getToppings()); // here we are returning the value of crust using getCrust()
+console.log(myPizza.getToppings()); */ // here we are returning the value of crust using getCrust()
+
+// Super Classes and Sub Classes
+
+class Pizza {
+  constructor(pizzaSize) {
+    this.size = pizzaSize;
+    this.crust = "original";
+  }
+  getCrust() {
+    return this.crust; // Here we return the value of crust
+  }
+  setCrust(pizzaCrust) {
+    this.crust = pizzaCrust; // here we set the value of crust
+  }
+}
+
+``;
