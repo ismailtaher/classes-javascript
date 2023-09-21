@@ -38,26 +38,40 @@ console.log(myPizza.getToppings()); */ // here we are returning the value of cru
 
 class Pizza {
   constructor(pizzaSize) {
-    this.size = pizzaSize;
-    this.crust = "original";
+    this._size = pizzaSize;
+    this._crust = "original";
   }
   getCrust() {
-    return this.crust; // Here we return the value of crust
+    return this._crust; // Here we return the value of crust
   }
   setCrust(pizzaCrust) {
-    this.crust = pizzaCrust; // here we set the value of crust
+    this._crust = pizzaCrust; // here we set the value of crust
   }
 }
 
-class SpecialtyPizza extends Pizza {
+/* class SpecialtyPizza extends Pizza {
   constructor(pizzaSize) {
     super(pizzaSize);
-    this.type = "The Works";
+    this._type = "The Works";
   }
   slice() {
-    console.log(`Our ${this.type} ${this.size} pizza has 8 slices`);
+    console.log(`Our ${this._type} ${this._size} pizza has 8 slices`);
   }
 }
 
 const mySpecialty = new SpecialtyPizza("Medium");
 mySpecialty.slice();
+ */
+
+// Factory Functions and using them to make the properties of our classes truly private
+
+function pizzaFactoy(pizzaSize) {
+  const crust = "original";
+  const size = pizzaSize;
+  return {
+    bake: () => console.log(`baking a ${size} ${crust} crust pizza`),
+  };
+}
+
+const myPizza = pizzaFactoy("small");
+myPizza.bake();
