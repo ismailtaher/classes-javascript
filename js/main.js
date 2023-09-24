@@ -101,4 +101,4 @@ class Pizza {
 
 const myPizza = new Pizza("small");
 myPizza.hereYouGo();
-console.log(myPizza.size);
+console.log(myPizza.size); // will be undefined as size is now a private field
