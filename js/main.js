@@ -36,18 +36,18 @@ console.log(myPizza.getToppings()); */ // here we are returning the value of cru
 
 // Super Classes and Sub Classes
 
-class Pizza {
+/* class Pizza {
   constructor(pizzaSize) {
     this._size = pizzaSize;
     this._crust = "original";
   }
   getCrust() {
-    return this._crust; // Here we return the value of crust
+    return this._crust;
   }
   setCrust(pizzaCrust) {
-    this._crust = pizzaCrust; // here we set the value of crust
+    this._crust = pizzaCrust;
   }
-}
+} */
 
 /* class SpecialtyPizza extends Pizza {
   constructor(pizzaSize) {
@@ -65,7 +65,7 @@ mySpecialty.slice();
 
 // Factory Functions and using them to make the properties of our classes truly private
 
-function pizzaFactoy(pizzaSize) {
+/* function pizzaFactoy(pizzaSize) {
   const crust = "original";
   const size = pizzaSize;
   return {
@@ -75,3 +75,30 @@ function pizzaFactoy(pizzaSize) {
 
 const myPizza = pizzaFactoy("small");
 myPizza.bake();
+ */
+
+// Public & Private Fields in Classes
+
+class Pizza {
+  crust = "original";
+  #sauce = "traditional";
+  #size;
+  constructor(pizzaSize) {
+    this.#size = pizzaSize;
+  }
+  getCrust() {
+    return this.crust;
+  }
+  setCrust(pizzaCrust) {
+    this.crust = pizzaCrust;
+  }
+  hereYouGo() {
+    console.log(
+      `here's your ${this.crust} ${this.#sauce} sauce ${this.#size} pizza`
+    );
+  }
+}
+
+const myPizza = new Pizza("small");
+myPizza.hereYouGo();
+console.log(myPizza.size);
